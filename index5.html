@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A111F">
+<title>給与手取り計算Pro｜年収・月給・時給から手取りを自動計算【2026年版】</title>
+<meta name="description" content="年収・月給・週給・日給・時給を相互に換算し、社会保険料・所得税・住民税を引いた手取り額を計算。令和8年分（2026年）の基礎控除・給与所得控除に対応。iDeCoの節税額や残業代も試算できます。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<!-- TODO: YOUR-DOMAIN を実際のドメインに置き換えてください（canonical / og:url / JSON-LD） -->
+<link rel="canonical" href="https://YOUR-DOMAIN/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="給与手取り計算Pro">
+<meta property="og:title" content="給与手取り計算Pro｜年収・月給・時給から手取りを自動計算">
+<meta property="og:description" content="社会保険料・所得税・住民税を引いた手取り額を、年・月・週・日・時間ごとに表示。2026年（令和8年分）対応。">
+<meta property="og:url" content="https://YOUR-DOMAIN/">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Hiragino Sans"','"Hiragino Kaku Gothic ProN"','"Noto Sans JP"','"Yu Gothic"','Meiryo','system-ui','sans-serif']}}}}</script>
+<!-- AdSense: コメントを外して発行者IDを設定してください
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<style type="text/tailwindcss">
+  .panel{@apply rounded-2xl border border-[#22304A] bg-[#111A2C] p-5 sm:p-6}
+  .lbl{@apply mb-1.5 block text-sm font-medium text-slate-300}
+  .inp{@apply w-full rounded-lg border border-[#2B3B58] bg-[#0A111F] px-3.5 py-3 text-base tabular-nums text-slate-100 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50}
+  .chip{@apply rounded-md px-1 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400}
+  .ad{@apply my-8 flex min-h-[100px] items-center justify-center rounded-xl border border-dashed border-[#2B3B58] text-xs text-slate-500}
+  html{scroll-behavior:smooth}
+  .inp{min-height:48px}
+  .chip{min-height:44px}
+  input[type=range]{height:2rem;cursor:pointer}
+  @keyframes flash{from{background-color:rgba(94,234,212,.3)}to{background-color:transparent}}
+  .flash{animation:flash .9s ease-out}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flash{animation:none}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://YOUR-DOMAIN/#page","url":"https://YOUR-DOMAIN/","name":"給与手取り計算Pro｜年収・月給・時給から手取りを自動計算","inLanguage":"ja","dateModified":"2026-11-18","isPartOf":{"@type":"WebSite","name":"給与手取り計算Pro","url":"https://YOUR-DOMAIN/"}},
+{"@type":"SoftwareApplication","name":"給与手取り計算Pro","applicationCategory":"FinanceApplication","operatingSystem":"Any (Webブラウザ)","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"年収・月給・週給・日給・時給を相互に換算し、社会保険料・所得税・住民税を引いた手取り額を概算するツール。令和8年分に対応。","featureList":["年収・月給・週給・日給・時給の相互換算","社会保険料・所得税・住民税の概算","iDeCo掛金による節税額のシミュレーション","残業時間と割増率の調整"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"年収から手取りはどのくらいになりますか？","acceptedAnswer":{"@type":"Answer","text":"額面から社会保険料（本人負担で約15%）と所得税・住民税が引かれます。割合は年収や扶養の有無で変わるため、このツールに条件を入力して試算してください。"}},
+{"@type":"Question","name":"時給から年収を計算するには？","acceptedAnswer":{"@type":"Answer","text":"時給×週の労働時間×年間の勤務週数で求めます。例えば時給1,500円、週40時間、年52週なら年収は3,120,000円です。"}},
+{"@type":"Question","name":"社会保険料は何％引かれますか？","acceptedAnswer":{"@type":"Answer","text":"本人負担の目安は、健康保険が約5%、厚生年金が9.15%、雇用保険が0.5%で、合計約15%です。健康保険の料率は都道府県や加入先によって異なります。"}},
+{"@type":"Question","name":"iDeCoで本当に節税になりますか？","acceptedAnswer":{"@type":"Answer","text":"掛金は全額が所得控除となり、所得税と住民税が軽減されます。ただし原則60歳まで引き出せず、受け取る際には課税される点に注意が必要です。"}},
+{"@type":"Question","name":"年収の壁178万円とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"令和8年分から、給与収入が178万円までは所得税がかからない目安になりました。住民税や社会保険の壁は別の基準です。"}},
+{"@type":"Question","name":"残業代の割増率はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"法定時間外労働は25%以上の割増で、月60時間を超える部分は50%以上です。深夜労働は25%以上、法定休日労働は35%以上の割増になります。"}}
+]}]}
+</script>
+</head>
+<body class="bg-[#0A111F] font-sans text-slate-200 antialiased">
+
+<header class="mx-auto flex max-w-6xl items-center justify-between px-4 pt-5">
+  <span class="text-lg font-bold text-white">給与手取り計算<span class="text-amber-400">Pro</span></span>
+  <span class="rounded-full border border-[#2B3B58] px-3 py-1 text-xs text-slate-400">令和8年分（2026年）</span>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 pb-12">
+  <div class="pt-8 pb-6 sm:pt-12">
+    <h1 class="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl">給与・手取り計算シミュレーター【2026年版】</h1>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">年収・月給・週給・日給・時給のどれからでも入力できます。社会保険料・所得税・住民税を引いた手取り額を、年・月・週・日・時間ごとに確認できます。</p>
+  </div>
+
+  <section aria-label="計算ツール" class="grid gap-5 lg:grid-cols-5">
+    <form id="inputs" class="panel space-y-5 lg:col-span-2" onsubmit="return false" autocomplete="off">
+      <div>
+        <span class="lbl">入力する給与の単位</span>
+        <div class="grid grid-cols-5 gap-1 rounded-lg bg-[#0A111F] p-1" id="units" role="group" aria-label="給与の単位"></div>
+      </div>
+      <div>
+        <label class="lbl" for="amt" id="amt-l">年収（額面・円）</label>
+        <input class="inp" id="amt" type="number" inputmode="numeric" min="0" step="any" value="5000000">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl" for="hrs">週の所定労働時間</label><input class="inp" id="hrs" type="number" inputmode="decimal" min="0" max="168" step="any" value="40"></div>
+        <div><label class="lbl" for="wks">年間の勤務週数</label><input class="inp" id="wks" type="number" inputmode="decimal" min="0" max="52" step="any" value="52"></div>
+        <div><label class="lbl" for="ot">週の残業時間</label><input class="inp" id="ot" type="number" inputmode="decimal" min="0" max="80" step="any" value="0"></div>
+        <div><label class="lbl" for="otm">残業の割増率（倍）</label><input class="inp" id="otm" type="number" inputmode="decimal" min="1" max="2" step="0.05" value="1.25"></div>
+        <div><label class="lbl" for="dep">扶養親族（16歳以上）</label><input class="inp" id="dep" type="number" inputmode="numeric" min="0" max="10" step="1" value="0"></div>
+        <label class="mt-7 flex min-h-[48px] cursor-pointer items-center gap-2 rounded-lg border border-[#2B3B58] bg-[#0A111F] px-3 text-sm text-slate-300"><input id="care" type="checkbox" class="h-5 w-5 accent-amber-400">40〜64歳（介護保険料あり）</label>
+      </div>
+      <div>
+        <div class="flex items-baseline justify-between"><label class="lbl" for="ideco">iDeCo掛金（月額）</label><output id="idv" class="text-sm font-semibold tabular-nums text-amber-400"></output></div>
+        <input id="ideco" type="range" min="0" max="23000" step="1000" value="0" class="w-full accent-amber-400">
+        <p class="mt-1 text-xs leading-relaxed text-slate-500">NISA・財形貯蓄には所得控除がないため、税額は変わりません。iDeCoの上限額は勤務先の年金制度などにより異なります。</p>
+      </div>
+      <p class="text-xs leading-relaxed text-slate-500">月給・週給・日給で入力した場合、賞与は含まれません。賞与を含める場合は年収で入力してください。残業代は基本の時給×割増率で加算します。</p>
+    </form>
+
+    <div id="results" class="panel scroll-mt-4 lg:col-span-3" aria-live="polite">
+      <div class="grid grid-cols-5 gap-1 rounded-lg bg-[#0A111F] p-1" id="views" role="group" aria-label="表示する期間"></div>
+      <p class="mt-5 text-sm text-slate-400" id="hl">手取り（年）</p>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1"><p class="inline-block rounded-lg text-4xl font-bold tabular-nums text-[#5EEAD4] sm:text-5xl" id="hero">0円</p><span id="dl" style="opacity:0"></span></div>
+      <p class="mt-1 text-sm text-slate-400" id="sub"></p>
+
+      <div class="mt-5 flex h-4 overflow-hidden rounded-full bg-[#0A111F]" id="bar" role="img" aria-label="額面に占める手取りと控除の割合"></div>
+      <ul class="mt-4 space-y-2 text-sm" id="parts"></ul>
+      <p class="mt-3 rounded-lg bg-[#0A111F] px-3 py-2 text-xs leading-relaxed text-slate-400" id="tip" hidden></p>
+
+      <div class="mt-5 rounded-xl border border-[#22304A] bg-[#0A111F] p-3 sm:p-4">
+        <p class="mb-2 text-xs font-semibold text-slate-500">次のステップ <span class="font-normal">・PR（広告）</span></p>
+        <div class="space-y-2" id="nx"></div>
+      </div>
+
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-[300px] text-left text-sm tabular-nums">
+          <thead class="border-b border-[#22304A] text-slate-400"><tr><th class="py-2 font-medium">期間</th><th class="py-2 text-right font-medium">額面</th><th class="py-2 text-right font-medium">手取り</th></tr></thead>
+          <tbody id="rows" class="divide-y divide-[#1B2740]"></tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs leading-relaxed text-slate-500">概算です。実際の金額は標準報酬月額、加入する健康保険組合、各種控除（生命保険料・住宅ローン・医療費など）により異なります。税務上の判断を保証するものではありません。</p>
+    </div>
+  </section>
+
+  <div class="ad" id="ad-a" aria-label="広告">広告枠A（レスポンシブ）</div>
+
+  <article class="max-w-3xl space-y-4 leading-relaxed text-slate-400">
+    <h2 class="text-2xl font-bold text-white">手取り額の計算方法（令和8年分）</h2>
+    <p><strong class="text-slate-200">手取り＝額面（総支給）− 社会保険料 − 所得税 − 住民税</strong> で求めます。このツールは次の前提で概算しています。</p>
+    <ul class="list-disc space-y-1 pl-5">
+      <li>健康保険：本人負担 約5.1%（協会けんぽ平均を基にした概算）。40〜64歳は介護保険料として約0.8%を加算</li>
+      <li>厚生年金：本人負担 9.15%（標準報酬月額の上限65万円に相当する年収780万円まで）</li>
+      <li>雇用保険：本人負担 0.5%</li>
+      <li>所得税：給与所得控除（最低74万円）、基礎控除（合計所得489万円以下で104万円）、社会保険料控除、iDeCo掛金控除、扶養控除（1人38万円）を差し引き、累進税率に復興特別所得税2.1%を加算</li>
+      <li>住民税：所得割10%＋均等割5,000円。基礎控除43万円、扶養控除1人33万円、調整控除を反映。給与収入119万円以下は非課税として扱います</li>
+      <li>賞与、通勤手当、生命保険料控除、住宅ローン控除、医療費控除、配偶者控除などは反映していません</li>
+    </ul>
+    <div class="overflow-x-auto">
+      <table class="w-full max-w-lg text-left text-sm tabular-nums">
+        <caption class="pb-2 text-left font-medium text-slate-200">所得税の速算表（課税所得に対する税率）</caption>
+        <thead class="border-b border-[#22304A] text-slate-400"><tr><th class="py-2 font-medium">課税所得</th><th class="py-2 font-medium">税率</th><th class="py-2 text-right font-medium">控除額</th></tr></thead>
+        <tbody class="divide-y divide-[#1B2740]">
+          <tr><td class="py-2">195万円以下</td><td>5%</td><td class="text-right">0円</td></tr>
+          <tr><td class="py-2">195万円超 330万円以下</td><td>10%</td><td class="text-right">97,500円</td></tr>
+          <tr><td class="py-2">330万円超 695万円以下</td><td>20%</td><td class="text-right">427,500円</td></tr>
+          <tr><td class="py-2">695万円超 900万円以下</td><td>23%</td><td class="text-right">636,000円</td></tr>
+          <tr><td class="py-2">900万円超 1,800万円以下</td><td>33%</td><td class="text-right">1,536,000円</td></tr>
+          <tr><td class="py-2">1,800万円超 4,000万円以下</td><td>40%</td><td class="text-right">2,796,000円</td></tr>
+          <tr><td class="py-2">4,000万円超</td><td>45%</td><td class="text-right">4,796,000円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>令和8年分は基礎控除（本則）が62万円、給与所得控除の最低保障額が69万円に引き上げられ、令和8・9年分は特例の加算で、給与収入178万円までは所得税がかかりません。毎月の源泉徴収への反映は令和9年1月からで、令和8年分は年末調整で精算されます。</p>
+    <h2 class="pt-2 text-2xl font-bold text-white">iDeCoの掛金で手取りはどう変わるか</h2>
+    <p>iDeCoの掛金は全額が所得控除になり、所得税と住民税が軽くなります。スライダーを動かすと、掛金を積み立てた場合の手取りの減り方と、軽減される税額が結果の下に表示されます。節税は掛金の積立分が老後資金として手元に残る形での効果で、受け取り時には課税されます。</p>
+  </article>
+
+  <div class="ad" id="ad-b" aria-label="広告">広告枠B（記事内）</div>
+
+  <section class="max-w-3xl" aria-labelledby="faq">
+    <h2 id="faq" class="text-2xl font-bold text-white">よくある質問</h2>
+    <div class="mt-4 divide-y divide-[#22304A] border-y border-[#22304A] text-slate-400">
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">年収から手取りはどのくらいになりますか？</summary><p class="mt-2 leading-relaxed">額面から社会保険料（本人負担で約15%）と所得税・住民税が引かれます。割合は年収や扶養の有無で変わるため、このツールに条件を入力して試算してください。</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">時給から年収を計算するには？</summary><p class="mt-2 leading-relaxed">時給×週の労働時間×年間の勤務週数で求めます。例えば時給1,500円、週40時間、年52週なら年収は3,120,000円です。</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">社会保険料は何％引かれますか？</summary><p class="mt-2 leading-relaxed">本人負担の目安は、健康保険が約5%、厚生年金が9.15%、雇用保険が0.5%で、合計約15%です。健康保険の料率は都道府県や加入先によって異なります。</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">iDeCoで本当に節税になりますか？</summary><p class="mt-2 leading-relaxed">掛金は全額が所得控除となり、所得税と住民税が軽減されます。ただし原則60歳まで引き出せず、受け取る際には課税される点に注意が必要です。</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">年収の壁178万円とは何ですか？</summary><p class="mt-2 leading-relaxed">令和8年分から、給与収入が178万円までは所得税がかからない目安になりました。住民税や社会保険の壁は別の基準です。</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">残業代の割増率はいくらですか？</summary><p class="mt-2 leading-relaxed">法定時間外労働は25%以上の割増で、月60時間を超える部分は50%以上です。深夜労働は25%以上、法定休日労働は35%以上の割増になります。</p></details>
+    </div>
+  </section>
+</main>
+
+<div id="sbar" class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-[#22304A] bg-[#0A111F]/95 px-4 pt-3 backdrop-blur transition-transform lg:hidden" style="padding-bottom:calc(env(safe-area-inset-bottom,0px) + .75rem)">
+  <div class="flex items-center justify-between gap-3"><div><p class="text-xs text-slate-400" id="sbl">手取り（年）</p><p class="text-2xl font-bold tabular-nums text-[#5EEAD4]" id="sbv">0円</p></div><a href="#results" class="rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-[#0A111F]">内訳を見る</a></div>
+</div>
+<footer class="border-t border-[#22304A] px-4 py-6 text-center text-xs leading-relaxed text-slate-500">© 給与手取り計算Pro｜税額・社会保険料は概算です。最新の制度は国税庁・日本年金機構・協会けんぽの公表情報をご確認ください。広告・PRを含みます。</footer>
+
+<script>
+const $=i=>document.getElementById(i),v=i=>Math.max(parseFloat($(i).value)||0,0);
+const P=['year','month','week','day','hour'],L=['年','月','週','日','時'],NM={year:'年',month:'月',week:'週',day:'日',hour:'時間'};
+const N={year:'年収（額面・円）',month:'月給（額面・円）',week:'週給（額面・円）',day:'日給（額面・円）',hour:'時給（円）'};
+const AFF={job:'#',tax:'#',furu:'#'}; // TODO: アフィリエイトURLを設定
+let unit='year',view='year';
+const yen=n=>Math.round(n).toLocaleString('ja-JP')+'円';
+const factor=u=>{const h=v('hrs'),w=v('wks');return{year:1,month:12,week:w,day:5*w,hour:h*w}[u]};
+const kyu=g=>g<=2200000?Math.min(740000,g):g<=3600000?g*.3+80000:g<=6600000?g*.2+440000:g<=8500000?g*.1+1100000:1950000;
+const kiso=s=>s<=4890000?1040000:s<=6550000?670000:s<=23500000?620000:s<=24000000?480000:s<=24500000?320000:s<=25000000?160000:0;
+const BR=[[1950000,.05,0],[3300000,.1,97500],[6950000,.2,427500],[9000000,.23,636000],[18000000,.33,1536000],[40000000,.4,2796000],[1e15,.45,4796000]];
+const itax=t=>{for(const[c,r,d]of BR)if(t<=c)return Math.max(0,t*r-d);return 0};
+
+function run(ik,mult=1){
+  const h=v('hrs'),w=v('wks'),ot=v('ot'),m=Math.max(v('otm'),1);
+  const base=v('amt')*mult*factor(unit),bh=h*w?base/(h*w):0,g=base+bh*m*ot*w;
+  const hl=Math.min(g,16680000)*($('care').checked?.059:.051),pn=Math.min(g,7800000)*.0915,em=g*.005,si=hl+pn+em;
+  const sh=Math.max(0,g-kyu(g)),i12=ik*12,dp=v('dep');
+  const inc=Math.round(itax(Math.max(0,sh-kiso(sh)-si-i12-dp*380000))*1.021);
+  const res=g<=1190000?0:Math.round(Math.max(0,Math.max(0,sh-430000-si-i12-dp*330000)*.1-2500*(1+dp))+5000);
+  return{g,hl,pn,em,inc,res,ik:i12,net:g-si-inc-res-i12,hours:(h+ot)*w,wks:w};
+}
+function setUnit(u){
+  const base=v('amt')*factor(unit),f=factor(u);
+  if(f>0)$('amt').value=Math.round(base/f*(u==='hour'?100:1))/(u==='hour'?100:1);
+  unit=u;$('amt-l').textContent=N[u];draw();calc();
+}
+function setView(x){view=x;draw();calc()}
+function draw(){
+  const mk=(id,cur,fn)=>{$(id).innerHTML=P.map((p,i)=>`<button type="button" class="chip ${p===cur?'bg-amber-400 text-[#0A111F]':'text-slate-300 hover:text-white'}" aria-pressed="${p===cur}" onclick="${fn}('${p}')">${L[i]}</button>`).join('')};
+  mk('units',unit,'setUnit');mk('views',view,'setView');
+}
+function calc(){
+  const ik=v('ideco'),r=run(ik);
+  $('idv').textContent=yen(ik)+'/月';
+  const div=view==='hour'?r.hours:view==='year'?1:view==='month'?12:view==='week'?r.wks:r.wks*5,s=div>0?1/div:0,g=r.g;
+  const parts=[['手取り',r.net,'#5EEAD4'],['iDeCo掛金',r.ik,'#93C5FD'],['所得税（復興税込み）',r.inc,'#F5B544'],['住民税',r.res,'#C4B5FD'],['健康保険（介護込み）',r.hl,'#FB923C'],['厚生年金',r.pn,'#F87171'],['雇用保険',r.em,'#A8A29E']];
+  $('hl').textContent='手取り（'+NM[view]+'）';
+  paint(r.net*s);
+  $('sub').textContent=`額面 ${yen(g*s)}（${NM[view]}あたり）から`;
+  $('bar').innerHTML=parts.filter(p=>p[1]>0&&g>0).map(p=>`<span style="width:${p[1]/g*100}%;background:${p[2]}"></span>`).join('');
+  $('parts').innerHTML=parts.map(p=>`<li class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${p[2]}"></span><span class="flex-1">${p[0]}</span><span class="tabular-nums text-white">${yen(p[1]*s)}</span><span class="w-14 text-right tabular-nums text-slate-400">${g?(p[1]/g*100).toFixed(1)+'%':'0.0%'}</span></li>`).join('');
+  const tip=$('tip');
+  if(ik>0){const z=run(0),sv=(z.inc+z.res)-(r.inc+r.res);tip.hidden=false;tip.textContent=`iDeCoの年間掛金 ${yen(r.ik)} により、所得税・住民税が約 ${yen(sv)} 軽減され、手取りの減少は ${yen(z.net-r.net)} にとどまります（受け取り時に課税されます）。`}else tip.hidden=true;
+  const wk=r.wks?g/r.wks:0,nk=r.wks?r.net/r.wks:0;
+  const per=[['年',g,r.net],['月',g/12,r.net/12],['週',wk,nk],['日（週5日）',wk/5,nk/5],['時間',r.hours?g/r.hours:0,r.hours?r.net/r.hours:0]];
+  $('rows').innerHTML=per.map((x,i)=>`<tr class="${i===P.indexOf(view)?'text-amber-400':''}"><td class="py-2">${x[0]}</td><td class="py-2 text-right">${yen(x[1])}</td><td class="py-2 text-right">${yen(x[2])}</td></tr>`).join('');
+  after(r,ik);
+}
+let shown=null,lastView=null,baseV=null,idle;
+function paint(val){
+  const el=$('hero'),dl=$('dl');
+  $('sbv').textContent=yen(val);$('sbl').textContent='手取り（'+NM[view]+'）';
+  if(view!==lastView||shown===null){lastView=view;shown=val;baseV=null;el.textContent=yen(val);dl.style.opacity=0;return}
+  if(Math.abs(val-shown)<.5)return;
+  if(baseV===null)baseV=shown;
+  const from=shown,t0=performance.now(),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  cancelAnimationFrame(paint.id);
+  const step=t=>{const p=still?1:Math.min((t-t0)/350,1);shown=from+(val-from)*(1-Math.pow(1-p,3));el.textContent=yen(shown);if(p<1)paint.id=requestAnimationFrame(step)};
+  paint.id=requestAnimationFrame(step);
+  el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+  const df=val-baseV;
+  if(Math.abs(df)<.5)dl.style.opacity=0;
+  else{dl.textContent=(df>0?'▲ +':'▼ −')+yen(Math.abs(df));dl.className='rounded-full px-2.5 py-1 text-xs font-semibold tabular-nums transition-opacity '+(df>0?'bg-teal-400/15 text-teal-300':'bg-amber-400/15 text-amber-300');dl.style.opacity=1}
+  clearTimeout(idle);idle=setTimeout(()=>{dl.style.opacity=0;baseV=null},1800);
+}
+function after(r,ik){
+  const box=$('nx');box.parentElement.hidden=r.g<=0;
+  const gain=run(ik,1.1).net-r.net;
+  const rows=[
+    ['job','年収アップの選択肢を比較',`昇給10%で、手取りは年に約${yen(gain)}増える試算です。`,'求人を見る'],
+    ['tax','確定申告・年末調整の確認',`所得税の見込みは約${yen(r.inc)}。控除の入力漏れの確認に使えます。`,'サービスを見る'],
+    ['furu','ふるさと納税を検討',`住民税の見込みは約${yen(r.res)}。控除上限内なら自己負担は実質2,000円です。`,'サービスを見る']];
+  box.innerHTML=rows.map(w=>`<a href="${AFF[w[0]]}" data-aff="${w[0]}" rel="sponsored nofollow noopener" target="_blank" class="flex min-h-[56px] items-center justify-between gap-3 rounded-lg bg-[#111A2C] px-3 py-2.5 hover:ring-1 hover:ring-amber-400"><span><span class="block text-sm font-semibold text-white">${w[1]}</span><span class="block text-xs leading-relaxed text-slate-400">${w[2]}</span></span><span class="shrink-0 text-xs font-semibold text-amber-400">${w[3]} →</span></a>`).join('');
+}
+$('nx').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const p={slot:a.dataset.aff,view};window.dataLayer&&dataLayer.push({event:'affiliate_click',...p});typeof gtag==='function'&&gtag('event','affiliate_click',p)});
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',calc));
+const vis={};
+const io=new IntersectionObserver(es=>{es.forEach(e=>vis[e.target.id]=e.isIntersecting);$('sbar').classList.toggle('translate-y-full',!(vis.inputs&&!vis.results))},{threshold:.05});
+['inputs','results'].forEach(i=>io.observe($(i)));
+draw();calc();
+</script>
+</body>
+</html>
