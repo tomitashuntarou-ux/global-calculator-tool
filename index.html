@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salary to Hourly Wage &amp; Take-Home Pay Calculator (2026)</title>
+<meta name="description" content="Free salary to hourly calculator. Convert annual salary to an hourly wage, then see your estimated take-home pay after 2026 federal tax, FICA and state tax.">
+<meta property="og:title" content="Salary to Hourly Wage &amp; Take-Home Pay Calculator">
+<meta property="og:description" content="Convert salary to hourly pay and estimate your take-home pay after taxes. Free, instant, no sign-up.">
+<meta property="og:type" content="website">
+<!-- After deploying, add: <link rel="canonical" href="https://your-domain.com/"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['"Bricolage Grotesque"','system-ui','sans-serif'],sans:['"Public Sans"','system-ui','sans-serif']}}}}</script>
+<style type="text/tailwindcss">
+  .lbl{@apply block text-sm font-medium text-slate-700 mb-1.5}
+  .inp{@apply w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base tabular-nums focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600}
+  .seg{@apply flex-1 rounded-md py-2 text-sm font-semibold transition-colors}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Salary to Hourly Wage & Take-Home Pay Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert salary to hourly pay and estimate take-home pay after US federal, FICA and state taxes."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I convert salary to hourly pay?","acceptedAnswer":{"@type":"Answer","text":"Divide your annual salary by the hours you work in a year. For a standard full-time job that is 40 hours x 52 weeks = 2,080 hours, so a $52,000 salary equals $25 per hour."}},
+{"@type":"Question","name":"How many working hours are in a year?","acceptedAnswer":{"@type":"Answer","text":"The standard figure is 2,080 hours (40 hours x 52 weeks). If you take two weeks unpaid, it drops to 2,000 hours."}},
+{"@type":"Question","name":"How accurate is the take-home pay estimate?","acceptedAnswer":{"@type":"Answer","text":"It is an estimate. It uses 2026 federal tax brackets, the standard deduction, Social Security and Medicare, plus the flat state rate you enter. Local taxes, health insurance, credits and other deductions are not included."}},
+{"@type":"Question","name":"What is the difference between gross and net pay?","acceptedAnswer":{"@type":"Answer","text":"Gross pay is what you earn before anything is taken out. Net pay, or take-home pay, is what reaches your bank account after taxes and deductions."}},
+{"@type":"Question","name":"Which US states have no income tax on wages?","acceptedAnswer":{"@type":"Answer","text":"Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming do not tax wages. Enter 0 as your state tax rate if you live in one of them."}},
+{"@type":"Question","name":"Can I use this calculator if I am paid hourly?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch to Hourly rate, enter your wage and weekly hours, and the calculator shows your yearly, monthly, weekly and daily pay along with estimated take-home pay."}}
+]}]}
+</script>
+</head>
+<body class="bg-[#EEF2F0] font-sans text-[#12211E] antialiased">
+
+<header class="mx-auto max-w-5xl px-4 pt-10 pb-6 sm:pt-14">
+  <h1 class="font-display text-3xl font-bold leading-tight sm:text-5xl">Salary to hourly wage and take-home pay calculator</h1>
+  <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">Turn any annual salary into an hourly rate, or an hourly wage into a yearly income. Then see what you would actually keep after 2026 US federal tax, Social Security, Medicare and state tax.</p>
+</header>
+
+<main class="mx-auto max-w-5xl px-4 pb-12">
+  <section aria-label="Calculator" class="grid gap-5 lg:grid-cols-5">
+
+    <form class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 lg:col-span-2" onsubmit="return false" autocomplete="off">
+      <div class="flex gap-1 rounded-lg bg-slate-100 p-1" role="group" aria-label="Pay type">
+        <button type="button" id="m-annual" class="seg" onclick="setMode('annual')">Annual salary</button>
+        <button type="button" id="m-hourly" class="seg" onclick="setMode('hourly')">Hourly rate</button>
+      </div>
+      <div class="mt-5 space-y-4">
+        <div>
+          <label class="lbl" for="amt" id="amt-l">Annual salary ($)</label>
+          <input class="inp" id="amt" type="number" inputmode="decimal" min="0" step="any" value="65000">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="lbl" for="hrs">Hours per week</label><input class="inp" id="hrs" type="number" inputmode="decimal" min="0" max="168" step="any" value="40"></div>
+          <div><label class="lbl" for="wks">Paid weeks per year</label><input class="inp" id="wks" type="number" inputmode="decimal" min="0" max="52" step="any" value="52"></div>
+        </div>
+        <div>
+          <label class="lbl" for="fs">Filing status</label>
+          <select class="inp" id="fs"><option value="single">Single</option><option value="married">Married filing jointly</option><option value="head">Head of household</option></select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="lbl" for="st">State tax rate (%)</label><input class="inp" id="st" type="number" inputmode="decimal" min="0" max="20" step="any" value="4"></div>
+          <div><label class="lbl" for="k401">401(k) saved (%)</label><input class="inp" id="k401" type="number" inputmode="decimal" min="0" max="100" step="any" value="0"></div>
+        </div>
+      </div>
+      <p class="mt-4 text-xs leading-relaxed text-slate-500">Keep paid weeks at 52 if your salary already covers paid vacation and holidays.</p>
+    </form>
+
+    <div class="rounded-2xl bg-[#0B3B38] p-5 text-white sm:p-6 lg:col-span-3" aria-live="polite">
+      <p class="text-sm text-teal-100">You take home per hour</p>
+      <p class="font-display text-5xl font-bold tabular-nums sm:text-6xl" id="hero">$0.00</p>
+      <p class="mt-1 text-sm text-teal-100" id="sub"></p>
+
+      <div class="mt-6 flex h-4 overflow-hidden rounded-full bg-white/10" id="bar" role="img" aria-label="Share of gross pay by category"></div>
+      <ul class="mt-4 space-y-2 text-sm" id="parts"></ul>
+
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-[300px] text-left text-sm tabular-nums">
+          <thead class="border-b border-white/20 text-teal-100"><tr><th class="py-2 font-medium">Per</th><th class="py-2 text-right font-medium">Gross</th><th class="py-2 text-right font-medium">Take-home</th></tr></thead>
+          <tbody id="rows" class="divide-y divide-white/10"></tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs leading-relaxed text-teal-100/80">Estimate only. Uses 2026 federal brackets and standard deduction, 6.2% Social Security (up to $184,500) and 1.45% Medicare. Not tax advice.</p>
+    </div>
+  </section>
+
+  <article class="mt-14 max-w-3xl space-y-4 leading-relaxed text-slate-700">
+    <h2 class="font-display text-2xl font-bold text-[#12211E]">How this salary to hourly calculator works</h2>
+    <p>Employers quote pay in different ways: a yearly salary, a monthly figure, or an hourly rate. This calculator puts them on the same scale so you can compare job offers, check a raise, or price your time as a freelancer. Enter your pay, your weekly hours and the weeks you are paid, and every figure updates instantly.</p>
+    <p>The take-home estimate subtracts 401(k) savings, federal income tax after the standard deduction, Social Security, Medicare and the state tax rate you enter. Gross pay is what you earn; net pay is what lands in your bank account.</p>
+    <h3 class="font-display text-xl font-bold text-[#12211E]">Salary to hourly formula</h3>
+    <p><strong>Hourly wage = annual salary ÷ (hours per week × weeks per year).</strong> For a full-time job that is 2,080 hours a year. To go the other way, multiply your hourly rate by the same 2,080 hours.</p>
+    <div class="overflow-x-auto">
+      <table class="w-full max-w-md text-left text-sm tabular-nums">
+        <caption class="pb-2 text-left font-medium text-[#12211E]">Common salaries at 40 hours a week</caption>
+        <thead class="border-b border-slate-300"><tr><th class="py-2">Annual salary</th><th class="py-2">Hourly</th><th class="py-2">Monthly</th></tr></thead>
+        <tbody class="divide-y divide-slate-200">
+          <tr><td class="py-2">$40,000</td><td>$19.23</td><td>$3,333</td></tr>
+          <tr><td class="py-2">$50,000</td><td>$24.04</td><td>$4,167</td></tr>
+          <tr><td class="py-2">$60,000</td><td>$28.85</td><td>$5,000</td></tr>
+          <tr><td class="py-2">$75,000</td><td>$36.06</td><td>$6,250</td></tr>
+          <tr><td class="py-2">$100,000</td><td>$48.08</td><td>$8,333</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <section class="mt-12 max-w-3xl" aria-labelledby="faq">
+    <h2 id="faq" class="font-display text-2xl font-bold">Frequently asked questions</h2>
+    <div class="mt-4 divide-y divide-slate-300 border-y border-slate-300 text-slate-700">
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">How do I convert salary to hourly pay?</summary><p class="mt-2 leading-relaxed">Divide your annual salary by the hours you work in a year. For a standard full-time job that is 40 hours x 52 weeks = 2,080 hours, so a $52,000 salary equals $25 per hour.</p></details>
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">How many working hours are in a year?</summary><p class="mt-2 leading-relaxed">The standard figure is 2,080 hours (40 hours x 52 weeks). If you take two weeks unpaid, it drops to 2,000 hours.</p></details>
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">How accurate is the take-home pay estimate?</summary><p class="mt-2 leading-relaxed">It is an estimate. It uses 2026 federal tax brackets, the standard deduction, Social Security and Medicare, plus the flat state rate you enter. Local taxes, health insurance, credits and other deductions are not included.</p></details>
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">What is the difference between gross and net pay?</summary><p class="mt-2 leading-relaxed">Gross pay is what you earn before anything is taken out. Net pay, or take-home pay, is what reaches your bank account after taxes and deductions.</p></details>
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">Which US states have no income tax on wages?</summary><p class="mt-2 leading-relaxed">Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming do not tax wages. Enter 0 as your state tax rate if you live in one of them.</p></details>
+      <details class="group py-4"><summary class="cursor-pointer font-medium text-[#12211E]">Can I use this calculator if I am paid hourly?</summary><p class="mt-2 leading-relaxed">Yes. Switch to Hourly rate, enter your wage and weekly hours, and the calculator shows your yearly, monthly, weekly and daily pay along with estimated take-home pay.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-slate-300 py-6 text-center text-xs text-slate-500">Tax figures: 2026 tax year (IRS Rev. Proc. 2025-32). For information only, not financial or tax advice.</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const T={
+  single:{sd:16100,m:200000,t:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[1e12,.37]]},
+  married:{sd:32200,m:250000,t:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[1e12,.37]]},
+  head:{sd:24150,m:200000,t:[[17700,.10],[67450,.12],[105700,.22],[201750,.24],[256200,.32],[640600,.35],[1e12,.37]]}
+};
+let mode='annual';
+const usd=(n,d=0)=>n.toLocaleString('en-US',{style:'currency',currency:'USD',minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=n=>(n*100).toFixed(1)+'%';
+const v=id=>Math.max(parseFloat($(id).value)||0,0);
+
+function fedTax(income,brackets){let tax=0,prev=0;for(const[cap,rate]of brackets){if(income>prev)tax+=(Math.min(income,cap)-prev)*rate;prev=cap}return tax}
+
+function setMode(m){
+  const hw=v('hrs')*v('wks'),cur=v('amt');
+  if(m!==mode&&hw>0)$('amt').value=m==='hourly'?+(cur/hw).toFixed(2):Math.round(cur*hw);
+  mode=m;
+  $('amt-l').textContent=m==='annual'?'Annual salary ($)':'Hourly rate ($)';
+  ['annual','hourly'].forEach(k=>{const b=$('m-'+k),on=k===m;b.className='seg '+(on?'bg-white text-teal-800 shadow-sm':'text-slate-600 hover:text-slate-900');b.setAttribute('aria-pressed',on)});
+  calc();
+}
+
+function calc(){
+  const hrs=v('hrs'),wks=v('wks'),hw=hrs*wks;
+  const gross=mode==='annual'?v('amt'):v('amt')*hw;
+  const k=gross*Math.min(v('k401'),100)/100,c=T[$('fs').value];
+  const fed=fedTax(Math.max(0,gross-k-c.sd),c.t);
+  const ficaIncome=Math.max(0,gross-k);
+  const ss=Math.min(ficaIncome,184500)*.062;
+  const med=ficaIncome*.0145+Math.max(0,ficaIncome-c.m)*.009;
+  const st=Math.max(0,gross-k)*v('st')/100;
+  const net=gross-k-fed-ss-med-st;
+
+  const parts=[['Take-home pay',net,'#5EEAD4'],['401(k) savings',k,'#93C5FD'],['Federal income tax',fed,'#F2C14E'],['Social Security + Medicare',ss+med,'#FB923C'],['State income tax',st,'#C4B5FD']];
+  $('bar').innerHTML=parts.filter(p=>p[1]>0&&gross>0).map(p=>`<span style="width:${p[1]/gross*100}%;background:${p[2]}"></span>`).join('');
+  $('parts').innerHTML=parts.map(p=>`<li class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${p[2]}"></span><span class="flex-1">${p[0]}</span><span class="tabular-nums">${usd(p[1])}</span><span class="w-14 text-right tabular-nums text-teal-100">${gross?pct(p[1]/gross):'0.0%'}</span></li>`).join('');
+
+  const wk=wks?gross/wks:0,nwk=wks?net/wks:0;
+  const per=[['Year',gross,net],['Month',gross/12,net/12],['2 weeks',wk*2,nwk*2],['Week',wk,nwk],['Day (5-day week)',wk/5,nwk/5],['Hour',hrs?wk/hrs:0,hrs?nwk/hrs:0]];
+  $('rows').innerHTML=per.map((r,i)=>{const d=i===5?2:0;return `<tr class="${i===5?'font-semibold':''}"><td class="py-2">${r[0]}</td><td class="py-2 text-right">${usd(r[1],d)}</td><td class="py-2 text-right">${usd(r[2],d)}</td></tr>`}).join('');
+  $('hero').textContent=usd(per[5][2],2);
+  $('sub').textContent=`from ${usd(per[5][1],2)} gross per hour · ${usd(net)} a year after tax`;
+}
+
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',calc));
+setMode('annual');
+</script>
+</body>
+</html>
