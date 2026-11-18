@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A111F">
+<title>Salary to Hourly Converter &amp; 2026 Tax Calculator | WageMaster Pro</title>
+<meta name="description" content="Free salary to hourly converter and 2026 tax calculator. Convert yearly, monthly, weekly, daily and hourly pay, add overtime, and see take-home pay after federal tax, FICA, state tax and 401(k).">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<!-- TODO: replace YOUR-DOMAIN in the canonical, og:url and JSON-LD url below -->
+<link rel="canonical" href="https://YOUR-DOMAIN/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WageMaster Pro">
+<meta property="og:title" content="Salary to Hourly Converter &amp; 2026 Tax Calculator">
+<meta property="og:description" content="Convert salary to hourly pay and estimate take-home pay after 2026 US taxes. Free and instant.">
+<meta property="og:url" content="https://YOUR-DOMAIN/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salary to Hourly Converter &amp; 2026 Tax Calculator">
+<meta name="twitter:description" content="Yearly, monthly, weekly, daily and hourly pay, plus take-home after tax.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['"Bricolage Grotesque"','system-ui','sans-serif'],sans:['"Public Sans"','system-ui','sans-serif']}}}}</script>
+<!-- AdSense: uncomment and set your publisher ID
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<style type="text/tailwindcss">
+  .panel{@apply rounded-2xl border border-[#22304A] bg-[#111A2C] p-5 sm:p-6}
+  .lbl{@apply mb-1.5 block text-sm font-medium text-slate-300}
+  .inp{@apply w-full rounded-lg border border-[#2B3B58] bg-[#0A111F] px-3.5 py-2.5 text-base tabular-nums text-slate-100 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50}
+  .chip{@apply rounded-md px-1 py-2 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 sm:text-sm}
+  .ad{@apply my-8 flex min-h-[100px] items-center justify-center rounded-xl border border-dashed border-[#2B3B58] text-xs text-slate-500}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://YOUR-DOMAIN/#page","url":"https://YOUR-DOMAIN/","name":"Salary to Hourly Converter & 2026 Tax Calculator","inLanguage":"en","dateModified":"2026-11-18","isPartOf":{"@type":"WebSite","name":"WageMaster Pro","url":"https://YOUR-DOMAIN/"}},
+{"@type":"SoftwareApplication","name":"WageMaster Pro","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert salary to hourly pay and estimate US take-home pay after federal tax, FICA, state tax and 401(k) for tax year 2026."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I convert salary to hourly pay?","acceptedAnswer":{"@type":"Answer","text":"Divide annual salary by hours worked per year. A full-time job is 40 hours x 52 weeks = 2,080 hours, so $52,000 a year equals $25 an hour."}},
+{"@type":"Question","name":"How many working hours are in a year?","acceptedAnswer":{"@type":"Answer","text":"The standard figure is 2,080 hours. With two unpaid weeks it falls to 2,000 hours. Use the weeks and overtime fields to match your own schedule."}},
+{"@type":"Question","name":"How accurate is the take-home pay estimate?","acceptedAnswer":{"@type":"Answer","text":"It is an estimate based on 2026 federal brackets, the standard deduction, Social Security, Medicare and the flat state rate you choose. Local taxes, health insurance and credits are not included."}},
+{"@type":"Question","name":"Does a 401(k) contribution lower my taxes?","acceptedAnswer":{"@type":"Answer","text":"Traditional 401(k) contributions reduce taxable income for federal and most state income tax, but not for Social Security and Medicare. Your take-home pay falls by less than the amount you save."}},
+{"@type":"Question","name":"Which US states have no income tax on wages?","acceptedAnswer":{"@type":"Answer","text":"Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming. Set the state tax slider to 0% if you live in one of them."}}
+]}]}
+</script>
+</head>
+<body class="bg-[#0A111F] font-sans text-slate-200 antialiased">
+
+<header class="mx-auto flex max-w-6xl items-center justify-between px-4 pt-5">
+  <span class="font-display text-lg font-bold text-white">WageMaster <span class="text-amber-400">Pro</span></span>
+  <span class="rounded-full border border-[#2B3B58] px-3 py-1 text-xs text-slate-400">Tax year 2026</span>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 pb-12">
+  <div class="pt-8 pb-6 sm:pt-12">
+    <h1 class="max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-5xl">Salary to hourly converter and 2026 tax calculator</h1>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">Start from any pay figure: yearly, monthly, weekly, daily or hourly. See every other period instantly, then check what you keep after federal tax, state tax, FICA and 401(k).</p>
+  </div>
+
+  <section aria-label="Calculator" class="grid gap-5 lg:grid-cols-5">
+    <form class="panel space-y-5 lg:col-span-2" onsubmit="return false" autocomplete="off">
+      <div>
+        <span class="lbl">I know my pay per</span>
+        <div class="grid grid-cols-5 gap-1 rounded-lg bg-[#0A111F] p-1" id="units" role="group" aria-label="Pay period"></div>
+      </div>
+      <div>
+        <label class="lbl" for="amt" id="amt-l">Annual salary ($)</label>
+        <input class="inp" id="amt" type="number" inputmode="decimal" min="0" step="any" value="65000">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl" for="hrs">Hours per week</label><input class="inp" id="hrs" type="number" inputmode="decimal" min="0" max="168" step="any" value="40"></div>
+        <div><label class="lbl" for="wks">Weeks worked per year</label><input class="inp" id="wks" type="number" inputmode="decimal" min="0" max="52" step="any" value="52"></div>
+        <div><label class="lbl" for="ot">Overtime hours per week</label><input class="inp" id="ot" type="number" inputmode="decimal" min="0" max="80" step="any" value="0"></div>
+        <div><label class="lbl" for="otm">Overtime multiplier</label><input class="inp" id="otm" type="number" inputmode="decimal" min="1" max="3" step="0.25" value="1.5"></div>
+      </div>
+      <div>
+        <label class="lbl" for="fs">Filing status</label>
+        <select class="inp" id="fs"><option value="single">Single</option><option value="married">Married filing jointly</option><option value="head">Head of household</option></select>
+      </div>
+      <div>
+        <div class="flex items-baseline justify-between"><label class="lbl" for="k401">401(k) contribution</label><output id="k401v" class="text-sm font-semibold tabular-nums text-amber-400"></output></div>
+        <input id="k401" type="range" min="0" max="30" step="1" value="0" class="w-full accent-amber-400">
+      </div>
+      <div>
+        <div class="flex items-baseline justify-between"><label class="lbl" for="st">State income tax rate</label><output id="stv" class="text-sm font-semibold tabular-nums text-amber-400"></output></div>
+        <input id="st" type="range" min="0" max="13.3" step="0.1" value="4" class="w-full accent-amber-400">
+        <button type="button" id="notax" class="mt-1 text-xs text-slate-400 underline underline-offset-2 hover:text-white">Set 0% (TX, FL, WA, NV and other no-tax states)</button>
+      </div>
+      <p class="text-xs leading-relaxed text-slate-500">Salary figures are treated as base pay. Overtime is paid on top at your base hourly rate x the multiplier.</p>
+    </form>
+
+    <div class="panel lg:col-span-3" aria-live="polite">
+      <div class="grid grid-cols-5 gap-1 rounded-lg bg-[#0A111F] p-1" id="views" role="group" aria-label="Show results per"></div>
+      <p class="mt-5 text-sm text-slate-400" id="hl">Take-home pay per year</p>
+      <p class="font-display text-5xl font-bold tabular-nums text-[#5EEAD4] sm:text-6xl" id="hero">$0</p>
+      <p class="mt-1 text-sm text-slate-400" id="sub"></p>
+
+      <div class="mt-5 flex h-4 overflow-hidden rounded-full bg-[#0A111F]" id="bar" role="img" aria-label="Share of gross pay by category"></div>
+      <ul class="mt-4 space-y-2 text-sm" id="parts"></ul>
+      <p class="mt-3 rounded-lg bg-[#0A111F] px-3 py-2 text-xs text-slate-400" id="tip" hidden></p>
+
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-[300px] text-left text-sm tabular-nums">
+          <thead class="border-b border-[#22304A] text-slate-400"><tr><th class="py-2 font-medium">Per</th><th class="py-2 text-right font-medium">Gross</th><th class="py-2 text-right font-medium">Take-home</th></tr></thead>
+          <tbody id="rows" class="divide-y divide-[#1B2740]"></tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs leading-relaxed text-slate-500">Estimate only: 2026 federal brackets and standard deduction, 6.2% Social Security up to $184,500, 1.45% Medicare (+0.9% above $200,000 single / $250,000 joint). Not tax advice.</p>
+    </div>
+  </section>
+
+  <!-- Ad slot A: below the calculator. Replace the contents with your AdSense <ins> unit. -->
+  <div class="ad" id="ad-a" aria-label="Advertisement">Ad slot A (responsive display)</div>
+
+  <section aria-labelledby="rec" class="max-w-6xl">
+    <h2 id="rec" class="font-display text-xl font-bold text-white">Tools worth a look once you know your number</h2>
+    <p class="mt-1 text-xs text-slate-500">Affiliate links: we may earn a commission at no extra cost to you.</p>
+    <div class="mt-4 grid gap-3 sm:grid-cols-3">
+      <a href="#" rel="sponsored nofollow noopener" target="_blank" class="panel block transition-colors hover:border-amber-400"><p class="font-semibold text-white">Send money abroad</p><p class="mt-1 text-sm text-slate-400">Compare transfer fees and exchange rates for sending part of your paycheck home.</p><p class="mt-3 text-sm font-semibold text-amber-400">Add your affiliate link</p></a>
+      <a href="#" rel="sponsored nofollow noopener" target="_blank" class="panel block transition-colors hover:border-amber-400"><p class="font-semibold text-white">File and plan your taxes</p><p class="mt-1 text-sm text-slate-400">Tax software that turns this estimate into a real return and finds deductions.</p><p class="mt-3 text-sm font-semibold text-amber-400">Add your affiliate link</p></a>
+      <a href="#" rel="sponsored nofollow noopener" target="_blank" class="panel block transition-colors hover:border-amber-400"><p class="font-semibold text-white">Find a higher-paying job</p><p class="mt-1 text-sm text-slate-400">Browse salary data and open roles to see what your hourly rate could be.</p><p class="mt-3 text-sm font-semibold text-amber-400">Add your affiliate link</p></a>
+    </div>
+  </section>
+
+  <article class="mt-14 max-w-3xl space-y-4 leading-relaxed text-slate-400">
+    <h2 class="font-display text-2xl font-bold text-white">How the salary to hourly converter works</h2>
+    <p><strong class="text-slate-200">Hourly wage = annual salary ÷ (hours per week × weeks per year).</strong> A standard full-time year is 2,080 hours. Pick the pay period you know, and WageMaster Pro converts it to every other period, so you can compare job offers, check a raise or price your freelance time.</p>
+    <h2 class="pt-2 font-display text-2xl font-bold text-white">What the 2026 tax calculator includes</h2>
+    <p>Take-home pay is gross pay minus federal income tax (after the 2026 standard deduction), Social Security, Medicare, your state tax rate and 401(k) savings. Switch the view between year, month, week, day and hour to see each deduction at that scale.</p>
+    <h2 class="pt-2 font-display text-2xl font-bold text-white">How 401(k) savings change your paycheck</h2>
+    <p>Traditional 401(k) money is taken before income tax, so the drop in take-home pay is smaller than the amount you save. Move the slider and the tip under the chart shows how much tax you avoid.</p>
+  </article>
+
+  <div class="ad" id="ad-b" aria-label="Advertisement">Ad slot B (in-article)</div>
+
+  <section class="max-w-3xl" aria-labelledby="faq">
+    <h2 id="faq" class="font-display text-2xl font-bold text-white">Frequently asked questions</h2>
+    <div class="mt-4 divide-y divide-[#22304A] border-y border-[#22304A] text-slate-400">
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">How do I convert salary to hourly pay?</summary><p class="mt-2 leading-relaxed">Divide annual salary by hours worked per year. A full-time job is 40 hours x 52 weeks = 2,080 hours, so $52,000 a year equals $25 an hour.</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">How many working hours are in a year?</summary><p class="mt-2 leading-relaxed">The standard figure is 2,080 hours. With two unpaid weeks it falls to 2,000 hours. Use the weeks and overtime fields to match your own schedule.</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">How accurate is the take-home pay estimate?</summary><p class="mt-2 leading-relaxed">It is an estimate based on 2026 federal brackets, the standard deduction, Social Security, Medicare and the flat state rate you choose. Local taxes, health insurance and credits are not included.</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">Does a 401(k) contribution lower my taxes?</summary><p class="mt-2 leading-relaxed">Traditional 401(k) contributions reduce taxable income for federal and most state income tax, but not for Social Security and Medicare. Your take-home pay falls by less than the amount you save.</p></details>
+      <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">Which US states have no income tax on wages?</summary><p class="mt-2 leading-relaxed">Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming. Set the state tax slider to 0% if you live in one of them.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-[#22304A] px-4 py-6 text-center text-xs text-slate-500">© WageMaster Pro. Tax figures: tax year 2026 (IRS Rev. Proc. 2025-32). For information only, not financial or tax advice. Ads and affiliate links help keep the tool free.</footer>
+
+<script>
+const $=i=>document.getElementById(i),v=i=>Math.max(parseFloat($(i).value)||0,0);
+const P=['year','month','week','day','hour'],L=['Year','Month','Week','Day','Hour'];
+const N={year:'Annual salary ($)',month:'Monthly pay ($)',week:'Weekly pay ($)',day:'Daily pay ($)',hour:'Hourly rate ($)'};
+const T={
+  single:{sd:16100,m:200000,t:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[1e12,.37]]},
+  married:{sd:32200,m:250000,t:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[1e12,.37]]},
+  head:{sd:24150,m:200000,t:[[17700,.10],[67450,.12],[105700,.22],[201750,.24],[256200,.32],[640600,.35],[1e12,.37]]}
+};
+let unit='year',view='year';
+const usd=(n,d=0)=>n.toLocaleString('en-US',{style:'currency',currency:'USD',minimumFractionDigits:d,maximumFractionDigits:d});
+const fedTax=(inc,b)=>{let t=0,p=0;for(const[c,r]of b){if(inc>p)t+=(Math.min(inc,c)-p)*r;p=c}return t};
+const factor=u=>{const h=v('hrs'),w=v('wks');return{year:1,month:12,week:w,day:5*w,hour:h*w}[u]};
+
+function run(kPct){
+  const h=v('hrs'),w=v('wks'),ot=v('ot'),m=Math.max(v('otm'),1),c=T[$('fs').value];
+  const base=v('amt')*factor(unit),bh=h*w?base/(h*w):0;
+  const gross=base+bh*m*ot*w,k=gross*kPct/100;
+  const fed=fedTax(Math.max(0,gross-k-c.sd),c.t);
+  const fica=Math.min(gross,184500)*.062+gross*.0145+Math.max(0,gross-c.m)*.009;
+  const st=Math.max(0,gross-k)*v('st')/100;
+  return{gross,k,fed,fica,st,net:gross-k-fed-fica-st,hours:(h+ot)*w,wks:w};
+}
+
+function setUnit(u){
+  const base=v('amt')*factor(unit),f=factor(u);
+  if(f>0)$('amt').value=u==='year'||u==='month'?Math.round(base/f):+(base/f).toFixed(2);
+  unit=u;$('amt-l').textContent=N[u];draw();calc();
+}
+function setView(x){view=x;draw();calc()}
+function draw(){
+  const mk=(id,cur,fn)=>{$(id).innerHTML=P.map((p,i)=>`<button type="button" class="chip ${p===cur?'bg-amber-400 text-[#0A111F]':'text-slate-300 hover:text-white'}" aria-pressed="${p===cur}" onclick="${fn}('${p}')">${L[i]}</button>`).join('')};
+  mk('units',unit,'setUnit');mk('views',view,'setView');
+}
+
+function calc(){
+  const kp=v('k401'),r=run(kp);
+  $('k401v').textContent=kp+'%';$('stv').textContent=v('st').toFixed(1)+'%';
+  const div=view==='hour'?r.hours:view==='year'?1:view==='month'?12:view==='week'?r.wks:r.wks*5;
+  const d=view==='hour'?2:0,s=div>0?1/div:0,g=r.gross;
+  const parts=[['Take-home pay',r.net,'#5EEAD4'],['401(k) savings',r.k,'#93C5FD'],['Federal income tax',r.fed,'#F5B544'],['Social Security + Medicare',r.fica,'#FB923C'],['State income tax',r.st,'#C4B5FD']];
+  $('hl').textContent='Take-home pay per '+view;
+  $('hero').textContent=usd(r.net*s,d);
+  $('sub').textContent=`from ${usd(g*s,d)} gross per ${view}`;
+  $('bar').innerHTML=parts.filter(p=>p[1]>0&&g>0).map(p=>`<span style="width:${p[1]/g*100}%;background:${p[2]}"></span>`).join('');
+  $('parts').innerHTML=parts.map(p=>`<li class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${p[2]}"></span><span class="flex-1">${p[0]}</span><span class="tabular-nums text-white">${usd(p[1]*s,d)}</span><span class="w-14 text-right tabular-nums text-slate-400">${g?(p[1]/g*100).toFixed(1)+'%':'0.0%'}</span></li>`).join('');
+  const tip=$('tip');
+  if(kp>0){const z=run(0),saved=(z.fed+z.st)-(r.fed+r.st);tip.hidden=false;tip.textContent=`Saving ${usd(r.k)} in your 401(k) lowers your income tax by about ${usd(saved)} a year, so take-home pay drops only ${usd(z.net-r.net)}.`}else tip.hidden=true;
+  const wk=r.wks?g/r.wks:0,nk=r.wks?r.net/r.wks:0;
+  const per=[['Year',g,r.net],['Month',g/12,r.net/12],['Week',wk,nk],['Day (5-day week)',wk/5,nk/5],['Hour',r.hours?g/r.hours:0,r.hours?r.net/r.hours:0]];
+  $('rows').innerHTML=per.map((x,i)=>`<tr class="${x[0]===(L[P.indexOf(view)]||'')?'text-amber-400':''}"><td class="py-2">${x[0]}</td><td class="py-2 text-right">${usd(x[1],i===4?2:0)}</td><td class="py-2 text-right">${usd(x[2],i===4?2:0)}</td></tr>`).join('');
+}
+
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',calc));
+$('notax').onclick=()=>{$('st').value=0;calc()};
+draw();calc();
+</script>
+</body>
+</html>
