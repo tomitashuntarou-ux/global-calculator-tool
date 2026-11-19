@@ -5,18 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0A111F">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7E0SL5C47Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7E0SL5C47Q');</script>
 <title>給与手取り計算Pro｜年収・月給・時給から手取りを自動計算【2026年版】</title>
 <meta name="description" content="年収・月給・週給・日給・時給を相互に換算し、社会保険料・所得税・住民税を引いた手取り額を計算。令和8年分（2026年）の基礎控除・給与所得控除に対応。iDeCoの節税額や残業代も試算できます。">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<!-- TODO: YOUR-DOMAIN を実際のドメインに置き換えてください（canonical / og:url / JSON-LD） -->
-<link rel="canonical" href="https://YOUR-DOMAIN/">
+<link rel="canonical" href="https://global-calculator-tool.tomitashuntarou.workers.dev/index5">
+<link rel="alternate" hreflang="ja" href="https://global-calculator-tool.tomitashuntarou.workers.dev/index5">
+<link rel="alternate" hreflang="en" href="https://global-calculator-tool.tomitashuntarou.workers.dev/">
+<link rel="alternate" hreflang="x-default" href="https://global-calculator-tool.tomitashuntarou.workers.dev/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="給与手取り計算Pro">
 <meta property="og:title" content="給与手取り計算Pro｜年収・月給・時給から手取りを自動計算">
 <meta property="og:description" content="社会保険料・所得税・住民税を引いた手取り額を、年・月・週・日・時間ごとに表示。2026年（令和8年分）対応。">
-<meta property="og:url" content="https://YOUR-DOMAIN/">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://global-calculator-tool.tomitashuntarou.workers.dev/index5">
+<meta name="twitter:card" content="summary">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Hiragino Sans"','"Hiragino Kaku Gothic ProN"','"Noto Sans JP"','"Yu Gothic"','Meiryo','system-ui','sans-serif']}}}}</script>
 <!-- AdSense: コメントを外して発行者IDを設定してください
@@ -26,7 +31,7 @@
   .lbl{@apply mb-1.5 block text-sm font-medium text-slate-300}
   .inp{@apply w-full rounded-lg border border-[#2B3B58] bg-[#0A111F] px-3.5 py-3 text-base tabular-nums text-slate-100 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50}
   .chip{@apply rounded-md px-1 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400}
-  .ad{@apply my-8 flex min-h-[100px] items-center justify-center rounded-xl border border-dashed border-[#2B3B58] text-xs text-slate-500}
+  .ad{@apply my-8 flex min-h-[100px] items-center justify-center}
   html{scroll-behavior:smooth}
   .inp{min-height:48px}
   .chip{min-height:44px}
@@ -37,7 +42,7 @@
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebPage","@id":"https://YOUR-DOMAIN/#page","url":"https://YOUR-DOMAIN/","name":"給与手取り計算Pro｜年収・月給・時給から手取りを自動計算","inLanguage":"ja","dateModified":"2026-11-18","isPartOf":{"@type":"WebSite","name":"給与手取り計算Pro","url":"https://YOUR-DOMAIN/"}},
+{"@type":"WebPage","@id":"https://global-calculator-tool.tomitashuntarou.workers.dev/index5#page","url":"https://global-calculator-tool.tomitashuntarou.workers.dev/index5","name":"給与手取り計算Pro｜年収・月給・時給から手取りを自動計算","inLanguage":"ja","dateModified":"2026-11-20","isPartOf":{"@type":"WebSite","name":"給与手取り計算Pro","url":"https://global-calculator-tool.tomitashuntarou.workers.dev/"}},
 {"@type":"SoftwareApplication","name":"給与手取り計算Pro","applicationCategory":"FinanceApplication","operatingSystem":"Any (Webブラウザ)","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"年収・月給・週給・日給・時給を相互に換算し、社会保険料・所得税・住民税を引いた手取り額を概算するツール。令和8年分に対応。","featureList":["年収・月給・週給・日給・時給の相互換算","社会保険料・所得税・住民税の概算","iDeCo掛金による節税額のシミュレーション","残業時間と割増率の調整"]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"年収から手取りはどのくらいになりますか？","acceptedAnswer":{"@type":"Answer","text":"額面から社会保険料（本人負担で約15%）と所得税・住民税が引かれます。割合は年収や扶養の有無で変わるため、このツールに条件を入力して試算してください。"}},
@@ -51,13 +56,18 @@
 </head>
 <body class="bg-[#0A111F] font-sans text-slate-200 antialiased">
 
-<header class="mx-auto flex max-w-6xl items-center justify-between px-4 pt-5">
-  <span class="text-lg font-bold text-white">給与手取り計算<span class="text-amber-400">Pro</span></span>
-  <span class="rounded-full border border-[#2B3B58] px-3 py-1 text-xs text-slate-400">令和8年分（2026年）</span>
+<header class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 pt-5">
+  <a href="/index5" class="text-lg font-bold text-white">給与手取り計算<span class="text-amber-400">Pro</span></a>
+  <nav aria-label="メイン" class="flex items-center gap-5 text-sm text-slate-400">
+    <span class="hidden rounded-full border border-[#2B3B58] px-3 py-1 text-xs sm:inline">令和8年分（2026年）</span>
+    <a href="/contact-ja" class="py-2 hover:text-white">運営者情報</a>
+    <a href="/" lang="en" class="py-2 hover:text-white">English</a>
+  </nav>
 </header>
 
 <main class="mx-auto max-w-6xl px-4 pb-12">
-  <div class="pt-8 pb-6 sm:pt-12">
+  <p class="pt-3 text-xs text-slate-500" id="prnote" hidden>※本ページはプロモーション（広告）が含まれています。</p>
+  <div class="pt-6 pb-6 sm:pt-10">
     <h1 class="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl">給与・手取り計算シミュレーター【2026年版】</h1>
     <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">年収・月給・週給・日給・時給のどれからでも入力できます。社会保険料・所得税・住民税を引いた手取り額を、年・月・週・日・時間ごとに確認できます。</p>
   </div>
@@ -77,28 +87,30 @@
         <div><label class="lbl" for="wks">年間の勤務週数</label><input class="inp" id="wks" type="number" inputmode="decimal" min="0" max="52" step="any" value="52"></div>
         <div><label class="lbl" for="ot">週の残業時間</label><input class="inp" id="ot" type="number" inputmode="decimal" min="0" max="80" step="any" value="0"></div>
         <div><label class="lbl" for="otm">残業の割増率（倍）</label><input class="inp" id="otm" type="number" inputmode="decimal" min="1" max="2" step="0.05" value="1.25"></div>
-        <div><label class="lbl" for="dep">扶養親族（16歳以上）</label><input class="inp" id="dep" type="number" inputmode="numeric" min="0" max="10" step="1" value="0"></div>
+        <div><label class="lbl" for="dep">扶養親族（一般・16歳以上）</label><input class="inp" id="dep" type="number" inputmode="numeric" min="0" max="10" step="1" value="0"></div>
         <label class="mt-7 flex min-h-[48px] cursor-pointer items-center gap-2 rounded-lg border border-[#2B3B58] bg-[#0A111F] px-3 text-sm text-slate-300"><input id="care" type="checkbox" class="h-5 w-5 accent-amber-400">40〜64歳（介護保険料あり）</label>
       </div>
       <div>
-        <div class="flex items-baseline justify-between"><label class="lbl" for="ideco">iDeCo掛金（月額）</label><output id="idv" class="text-sm font-semibold tabular-nums text-amber-400"></output></div>
+        <div class="flex items-baseline justify-between"><label class="lbl" for="ideco">iDeCo掛金（月額）</label><output id="idv" class="text-sm font-semibold tabular-nums text-amber-400">0円/月</output></div>
         <input id="ideco" type="range" min="0" max="23000" step="1000" value="0" class="w-full accent-amber-400">
         <p class="mt-1 text-xs leading-relaxed text-slate-500">NISA・財形貯蓄には所得控除がないため、税額は変わりません。iDeCoの上限額は勤務先の年金制度などにより異なります。</p>
       </div>
+      <p class="text-xs leading-relaxed text-slate-500">扶養親族は一般の扶養親族（所得税38万円・住民税33万円の控除）として計算します。19〜22歳の特定扶養親族と70歳以上の老人扶養親族は控除額が異なります。</p>
       <p class="text-xs leading-relaxed text-slate-500">月給・週給・日給で入力した場合、賞与は含まれません。賞与を含める場合は年収で入力してください。残業代は基本の時給×割増率で加算します。</p>
     </form>
 
-    <div id="results" class="panel scroll-mt-4 lg:col-span-3" aria-live="polite">
+    <div id="results" class="panel scroll-mt-4 lg:col-span-3">
       <div class="grid grid-cols-5 gap-1 rounded-lg bg-[#0A111F] p-1" id="views" role="group" aria-label="表示する期間"></div>
       <p class="mt-5 text-sm text-slate-400" id="hl">手取り（年）</p>
-      <div class="flex flex-wrap items-center gap-x-3 gap-y-1"><p class="inline-block rounded-lg text-4xl font-bold tabular-nums text-[#5EEAD4] sm:text-5xl" id="hero">0円</p><span id="dl" style="opacity:0"></span></div>
-      <p class="mt-1 text-sm text-slate-400" id="sub"></p>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1"><p class="inline-block rounded-lg text-4xl font-bold tabular-nums text-[#5EEAD4] sm:text-5xl" id="hero">3,931,350円</p><span id="dl" style="opacity:0" aria-hidden="true"></span></div>
+      <p class="mt-1 text-sm text-slate-400" id="sub">額面 5,000,000円（年あたり）から</p>
+      <p class="sr-only" id="sr" aria-live="polite" aria-atomic="true"></p>
 
       <div class="mt-5 flex h-4 overflow-hidden rounded-full bg-[#0A111F]" id="bar" role="img" aria-label="額面に占める手取りと控除の割合"></div>
       <ul class="mt-4 space-y-2 text-sm" id="parts"></ul>
       <p class="mt-3 rounded-lg bg-[#0A111F] px-3 py-2 text-xs leading-relaxed text-slate-400" id="tip" hidden></p>
 
-      <div class="mt-5 rounded-xl border border-[#22304A] bg-[#0A111F] p-3 sm:p-4">
+      <div class="mt-5 rounded-xl border border-[#22304A] bg-[#0A111F] p-3 sm:p-4" hidden>
         <p class="mb-2 text-xs font-semibold text-slate-500">次のステップ <span class="font-normal">・PR（広告）</span></p>
         <div class="space-y-2" id="nx"></div>
       </div>
@@ -113,18 +125,19 @@
     </div>
   </section>
 
-  <div class="ad" id="ad-a" aria-label="広告">広告枠A（レスポンシブ）</div>
+  <!-- 広告枠A（計算結果の下）：AdSense合格後にコメントを外し、<ins> 広告ユニットを中に貼る
+  <div class="ad" id="ad-a" aria-label="広告"></div> -->
 
-  <article class="max-w-3xl space-y-4 leading-relaxed text-slate-400">
+  <article class="mt-14 max-w-3xl space-y-4 leading-relaxed text-slate-400">
     <h2 class="text-2xl font-bold text-white">手取り額の計算方法（令和8年分）</h2>
     <p><strong class="text-slate-200">手取り＝額面（総支給）− 社会保険料 − 所得税 − 住民税</strong> で求めます。このツールは次の前提で概算しています。</p>
     <ul class="list-disc space-y-1 pl-5">
-      <li>健康保険：本人負担 約5.1%（協会けんぽ平均を基にした概算）。40〜64歳は介護保険料として約0.8%を加算</li>
-      <li>厚生年金：本人負担 9.15%（標準報酬月額の上限65万円に相当する年収780万円まで）</li>
-      <li>雇用保険：本人負担 0.5%</li>
-      <li>所得税：給与所得控除（最低74万円）、基礎控除（合計所得489万円以下で104万円）、社会保険料控除、iDeCo掛金控除、扶養控除（1人38万円）を差し引き、累進税率に復興特別所得税2.1%を加算</li>
-      <li>住民税：所得割10%＋均等割5,000円。基礎控除43万円、扶養控除1人33万円、調整控除を反映。給与収入119万円以下は非課税として扱います</li>
-      <li>賞与、通勤手当、生命保険料控除、住宅ローン控除、医療費控除、配偶者控除などは反映していません</li>
+      <li>健康保険：協会けんぽの令和8年度の全国平均保険料率9.90%の本人負担分4.95%に、子ども・子育て支援金（令和8年4月分から、支援金率0.23%の本人負担分0.115%）を加算。40〜64歳は介護保険料（料率1.62%の本人負担分0.81%）も加算。健康保険の料率は都道府県や加入先によって異なります</li>
+      <li>厚生年金：本人負担 9.15%（標準報酬月額の上限65万円を年収に換算した780万円までを対象とする概算）</li>
+      <li>雇用保険：本人負担 0.5%（令和8年度・一般の事業）</li>
+      <li>所得税：給与所得控除（最低74万円。給与収入660万円未満は所得税法別表第五に準じて計算）、基礎控除（合計所得489万円以下で104万円）、社会保険料控除、iDeCo掛金控除、扶養控除（一般の扶養親族1人38万円）を差し引き、累進税率に復興特別所得税2.1%を加算</li>
+      <li>住民税：令和8年分の所得にかかる令和9年度分（翌年6月から納付）として計算。所得割10%＋均等割5,000円（森林環境税1,000円を含む標準額）。基礎控除43万円、扶養控除1人33万円、調整控除を反映。単身で給与収入119万円以下は非課税として扱います</li>
+      <li>賞与の社会保険料の扱い、通勤手当、配偶者控除、特定扶養・老人扶養の控除額の違い、生命保険料控除、住宅ローン控除、医療費控除などは反映していません。社会保険料は標準報酬月額の等級ではなく、額面に料率を掛けて計算しています</li>
     </ul>
     <div class="overflow-x-auto">
       <table class="w-full max-w-lg text-left text-sm tabular-nums">
@@ -144,11 +157,14 @@
     <p>令和8年分は基礎控除（本則）が62万円、給与所得控除の最低保障額が69万円に引き上げられ、令和8・9年分は特例の加算で、給与収入178万円までは所得税がかかりません。毎月の源泉徴収への反映は令和9年1月からで、令和8年分は年末調整で精算されます。</p>
     <h2 class="pt-2 text-2xl font-bold text-white">iDeCoの掛金で手取りはどう変わるか</h2>
     <p>iDeCoの掛金は全額が所得控除になり、所得税と住民税が軽くなります。スライダーを動かすと、掛金を積み立てた場合の手取りの減り方と、軽減される税額が結果の下に表示されます。節税は掛金の積立分が老後資金として手元に残る形での効果で、受け取り時には課税されます。</p>
+    <h2 class="pt-2 text-2xl font-bold text-white">手取りがわかったら次にできること</h2>
+    <p>手取り額がわかると、住民税の額からふるさと納税の控除上限の目安を出したり、毎月いくら積み立てに回せるかを考えたりできます。計算結果の下の「次のステップ」に、入力した条件に合わせた目安を表示しています。</p>
   </article>
 
-  <div class="ad" id="ad-b" aria-label="広告">広告枠B（記事内）</div>
+  <!-- 広告枠B（記事内）：AdSense合格後にコメントを外し、<ins> 広告ユニットを中に貼る
+  <div class="ad" id="ad-b" aria-label="広告"></div> -->
 
-  <section class="max-w-3xl" aria-labelledby="faq">
+  <section class="mt-12 max-w-3xl" aria-labelledby="faq">
     <h2 id="faq" class="text-2xl font-bold text-white">よくある質問</h2>
     <div class="mt-4 divide-y divide-[#22304A] border-y border-[#22304A] text-slate-400">
       <details class="py-4"><summary class="cursor-pointer font-medium text-slate-100">年収から手取りはどのくらいになりますか？</summary><p class="mt-2 leading-relaxed">額面から社会保険料（本人負担で約15%）と所得税・住民税が引かれます。割合は年収や扶養の有無で変わるため、このツールに条件を入力して試算してください。</p></details>
@@ -162,31 +178,59 @@
 </main>
 
 <div id="sbar" class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-[#22304A] bg-[#0A111F]/95 px-4 pt-3 backdrop-blur transition-transform lg:hidden" style="padding-bottom:calc(env(safe-area-inset-bottom,0px) + .75rem)">
-  <div class="flex items-center justify-between gap-3"><div><p class="text-xs text-slate-400" id="sbl">手取り（年）</p><p class="text-2xl font-bold tabular-nums text-[#5EEAD4]" id="sbv">0円</p></div><a href="#results" class="rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-[#0A111F]">内訳を見る</a></div>
+  <div class="flex items-center justify-between gap-3"><div><p class="text-xs text-slate-400" id="sbl">手取り（年）</p><p class="text-2xl font-bold tabular-nums text-[#5EEAD4]" id="sbv">3,931,350円</p></div><a href="#results" class="rounded-lg bg-amber-400 px-4 py-3 text-sm font-semibold text-[#0A111F]">内訳を見る</a></div>
 </div>
-<footer class="border-t border-[#22304A] px-4 py-6 text-center text-xs leading-relaxed text-slate-500">© 給与手取り計算Pro｜税額・社会保険料は概算です。最新の制度は国税庁・日本年金機構・協会けんぽの公表情報をご確認ください。広告・PRを含みます。</footer>
+<footer class="border-t border-[#22304A] px-4 py-6 text-center text-xs leading-relaxed text-slate-500">
+  <nav aria-label="フッター" class="mb-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-slate-400">
+    <a href="/index5" class="py-1 hover:text-white">手取り計算</a>
+    <a href="/" lang="en" class="py-1 hover:text-white">US Paycheck Calculator</a>
+    <a href="/privacy-ja" class="py-1 hover:text-white">プライバシーポリシー・免責事項</a>
+    <a href="/contact-ja" class="py-1 hover:text-white">運営者情報・お問い合わせ</a>
+  </nav>
+  © 2026 給与手取り計算Pro｜税額・社会保険料は概算です。最新の制度は国税庁・日本年金機構・協会けんぽの公表情報をご確認ください。<br>
+  「PR」「広告」と表示した枠・リンクは広告です。
+</footer>
 
 <script>
 const $=i=>document.getElementById(i),v=i=>Math.max(parseFloat($(i).value)||0,0);
 const P=['year','month','week','day','hour'],L=['年','月','週','日','時'],NM={year:'年',month:'月',week:'週',day:'日',hour:'時間'};
 const N={year:'年収（額面・円）',month:'月給（額面・円）',week:'週給（額面・円）',day:'日給（額面・円）',hour:'時給（円）'};
-const AFF={job:'#',tax:'#',furu:'#'}; // TODO: アフィリエイトURLを設定
 let unit='year',view='year';
 const yen=n=>Math.round(n).toLocaleString('ja-JP')+'円';
 const factor=u=>{const h=v('hrs'),w=v('wks');return{year:1,month:12,week:w,day:5*w,hour:h*w}[u]};
-const kyu=g=>g<=2200000?Math.min(740000,g):g<=3600000?g*.3+80000:g<=6600000?g*.2+440000:g<=8500000?g*.1+1100000:1950000;
 const kiso=s=>s<=4890000?1040000:s<=6550000?670000:s<=23500000?620000:s<=24000000?480000:s<=24500000?320000:s<=25000000?160000:0;
 const BR=[[1950000,.05,0],[3300000,.1,97500],[6950000,.2,427500],[9000000,.23,636000],[18000000,.33,1536000],[40000000,.4,2796000],[1e15,.45,4796000]];
 const itax=t=>{for(const[c,r,d]of BR)if(t<=c)return Math.max(0,t*r-d);return 0};
+const margRate=t=>{for(const[c,r]of BR)if(t<=c)return r;return .45};
+
+/* 社会保険料の本人負担率（令和8年度）
+   健康保険：協会けんぽ全国平均 9.90% の半分／子ども・子育て支援金 0.23% の半分（令和8年4月分から）
+   介護保険：1.62% の半分（40〜64歳）／厚生年金：18.3% の半分／雇用保険：一般の事業 5/1,000 */
+const KENPO=.0495,SHIEN=.00115,KAIGO=.0081,NENKIN=.0915,KOYO=.005;
+/* 給与所得の金額（令和8年分）。660万円未満は所得税法別表第五に準じ、収入÷4（千円未満切捨て）で計算 */
+const kyuShotoku=g=>{
+  if(g<2200000)return Math.max(0,g-740000);
+  if(g<6600000){const A=Math.floor(g/4/1000)*1000;return g<3600000?A*2.8-80000:A*3.2-440000}
+  return g-(g<=8500000?g*.1+1100000:1950000);
+};
+const kisoJ=s=>s<=24000000?430000:s<=24500000?290000:s<=25000000?150000:0; // 住民税の基礎控除
+const fl=(n,u)=>Math.floor(n/u)*u;
 
 function run(ik,mult=1){
   const h=v('hrs'),w=v('wks'),ot=v('ot'),m=Math.max(v('otm'),1);
   const base=v('amt')*mult*factor(unit),bh=h*w?base/(h*w):0,g=base+bh*m*ot*w;
-  const hl=Math.min(g,16680000)*($('care').checked?.059:.051),pn=Math.min(g,7800000)*.0915,em=g*.005,si=hl+pn+em;
-  const sh=Math.max(0,g-kyu(g)),i12=ik*12,dp=v('dep');
-  const inc=Math.round(itax(Math.max(0,sh-kiso(sh)-si-i12-dp*380000))*1.021);
-  const res=g<=1190000?0:Math.round(Math.max(0,Math.max(0,sh-430000-si-i12-dp*330000)*.1-2500*(1+dp))+5000);
-  return{g,hl,pn,em,inc,res,ik:i12,net:g-si-inc-res-i12,hours:(h+ot)*w,wks:w};
+  const hl=Math.min(g,16680000)*(KENPO+SHIEN+($('care').checked?KAIGO:0)),pn=Math.min(g,7800000)*NENKIN,em=g*KOYO,si=hl+pn+em;
+  const sh=kyuShotoku(g),i12=ik*12,dp=Math.floor(v('dep'));
+  // 所得税（課税所得は千円未満切捨て、復興特別所得税込みの税額は百円未満切捨て）
+  const ti=fl(Math.max(0,sh-kiso(sh)-si-i12-dp*380000),1000);
+  const inc=fl(itax(ti)*1.021,100);
+  // 住民税（令和8年分の所得にかかる令和9年度分。所得割10%・均等割5,000円・調整控除）
+  const jk=fl(Math.max(0,sh-kisoJ(sh)-si-i12-dp*330000),1000),diff=50000+dp*50000;
+  const adj=sh>25000000?0:jk<=2000000?Math.min(diff,jk)*.05:Math.max((diff-(jk-2000000))*.05,2500);
+  const hikazei=sh<=450000; // 単身の場合の非課税基準（合計所得45万円以下）
+  const resI=hikazei?0:fl(Math.max(0,jk*.1-adj),100);
+  const res=hikazei?0:resI+5000;
+  return{g,hl,pn,em,inc,res,resI,ti,jk,diff,ik:i12,net:g-si-inc-res-i12,hours:(h+ot)*w,wks:w};
 }
 function setUnit(u){
   const base=v('amt')*factor(unit),f=factor(u);
@@ -198,14 +242,16 @@ function draw(){
   const mk=(id,cur,fn)=>{$(id).innerHTML=P.map((p,i)=>`<button type="button" class="chip ${p===cur?'bg-amber-400 text-[#0A111F]':'text-slate-300 hover:text-white'}" aria-pressed="${p===cur}" onclick="${fn}('${p}')">${L[i]}</button>`).join('')};
   mk('units',unit,'setUnit');mk('views',view,'setView');
 }
+let srT;
 function calc(){
   const ik=v('ideco'),r=run(ik);
   $('idv').textContent=yen(ik)+'/月';
   const div=view==='hour'?r.hours:view==='year'?1:view==='month'?12:view==='week'?r.wks:r.wks*5,s=div>0?1/div:0,g=r.g;
-  const parts=[['手取り',r.net,'#5EEAD4'],['iDeCo掛金',r.ik,'#93C5FD'],['所得税（復興税込み）',r.inc,'#F5B544'],['住民税',r.res,'#C4B5FD'],['健康保険（介護込み）',r.hl,'#FB923C'],['厚生年金',r.pn,'#F87171'],['雇用保険',r.em,'#A8A29E']];
+  const parts=[['手取り',r.net,'#5EEAD4'],['iDeCo掛金',r.ik,'#93C5FD'],['所得税（復興税込み）',r.inc,'#F5B544'],['住民税',r.res,'#C4B5FD'],['健康保険（介護・子育て支援金込み）',r.hl,'#FB923C'],['厚生年金',r.pn,'#F87171'],['雇用保険',r.em,'#A8A29E']];
   $('hl').textContent='手取り（'+NM[view]+'）';
   paint(r.net*s);
   $('sub').textContent=`額面 ${yen(g*s)}（${NM[view]}あたり）から`;
+  clearTimeout(srT);srT=setTimeout(()=>{$('sr').textContent=`手取り（${NM[view]}）${yen(r.net*s)}`},600);
   $('bar').innerHTML=parts.filter(p=>p[1]>0&&g>0).map(p=>`<span style="width:${p[1]/g*100}%;background:${p[2]}"></span>`).join('');
   $('parts').innerHTML=parts.map(p=>`<li class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background:${p[2]}"></span><span class="flex-1">${p[0]}</span><span class="tabular-nums text-white">${yen(p[1]*s)}</span><span class="w-14 text-right tabular-nums text-slate-400">${g?(p[1]/g*100).toFixed(1)+'%':'0.0%'}</span></li>`).join('');
   const tip=$('tip');
@@ -232,14 +278,40 @@ function paint(val){
   else{dl.textContent=(df>0?'▲ +':'▼ −')+yen(Math.abs(df));dl.className='rounded-full px-2.5 py-1 text-xs font-semibold tabular-nums transition-opacity '+(df>0?'bg-teal-400/15 text-teal-300':'bg-amber-400/15 text-amber-300');dl.style.opacity=1}
   clearTimeout(idle);idle=setTimeout(()=>{dl.style.opacity=0;baseV=null},1800);
 }
+
+/* ===== アフィリエイトリンク：ASPで提携承認されたらURLを入れる（空欄の案件は表示されません） ===== */
+const AFF={
+  furusato:'', // ふるさと納税サイト          例: さとふる / ふるなび / 楽天ふるさと納税
+  nisa:'',     // ネット証券（NISA・iDeCo）   例: SBI証券 / 楽天証券 / マネックス証券
+  bank:'',     // ネット銀行（先取り貯蓄）     例: 楽天銀行 / 住信SBIネット銀行
+  card:'',     // クレジットカード            例: 楽天カード / 三井住友カード（NL）
+  job:'',      // 転職サービス                例: doda / リクルートエージェント / ビズリーチ
+  kakeibo:''   // 家計簿アプリ・FP相談         例: マネーフォワード ME / 無料FP相談
+};
 function after(r,ik){
-  const box=$('nx');box.parentElement.hidden=r.g<=0;
-  const gain=run(ik,1.1).net-r.net;
-  const rows=[
-    ['job','年収アップの選択肢を比較',`昇給10%で、手取りは年に約${yen(gain)}増える試算です。`,'求人を見る'],
-    ['tax','確定申告・年末調整の確認',`所得税の見込みは約${yen(r.inc)}。控除の入力漏れの確認に使えます。`,'サービスを見る'],
-    ['furu','ふるさと納税を検討',`住民税の見込みは約${yen(r.res)}。控除上限内なら自己負担は実質2,000円です。`,'サービスを見る']];
-  box.innerHTML=rows.map(w=>`<a href="${AFF[w[0]]}" data-aff="${w[0]}" rel="sponsored nofollow noopener" target="_blank" class="flex min-h-[56px] items-center justify-between gap-3 rounded-lg bg-[#111A2C] px-3 py-2.5 hover:ring-1 hover:ring-amber-400"><span><span class="block text-sm font-semibold text-white">${w[1]}</span><span class="block text-xs leading-relaxed text-slate-400">${w[2]}</span></span><span class="shrink-0 text-xs font-semibold text-amber-400">${w[3]} →</span></a>`).join('');
+  const mo=r.net/12,save=Math.max(1000,Math.round(mo*.1/1000)*1000),gain=run(ik,1.1).net-r.net;
+  // ふるさと納税 控除上限の目安 = 住民税所得割 × 20% ÷ (90% − 所得税の限界税率 × 1.021) + 2,000円
+  // 特例控除の税率区分は「住民税の課税所得 − 人的控除差調整額」で判定
+  const furu=r.resI>0?Math.floor((r.resI*.2/(.9-margRate(Math.max(0,r.jk-r.diff))*1.021)+2000)/1000)*1000:0;
+  // [キー, 優先度, タイトル, 説明, ボタン]  優先度の高い順に最大3件
+  const C=[
+    ['furusato',furu>=10000?5:1,
+      furu>=10000?`ふるさと納税の上限目安：約${yen(furu)}`:'ふるさと納税の仕組みを知る',
+      furu>=10000?'自己負担2,000円で返礼品を受け取れる金額の目安です。正確な上限は各サイトのシミュレーターでご確認ください。'
+                 :'住民税がかかる方は、自己負担2,000円で返礼品を受け取れます。','上限を確認'],
+    ['nisa',ik>0?3:4,
+      ik>0?'iDeCoと一緒にNISAも':'手取りの一部を積み立てるなら',
+      ik>0?'iDeCoは原則60歳まで引き出せません。いつでも引き出せる資金はNISAで。'
+          :`手取り月${yen(mo)}の1割なら月${yen(save)}。NISA口座はネット証券で無料で開設できます。`,'口座を比較'],
+    ['bank',3,'給料日に自動で先取り貯蓄',`毎月${yen(save)}を自動で別口座へ移せるネット銀行が便利です。`,'銀行を見る'],
+    ['card',2,'固定費をカード払いでポイント還元','公共料金や通信費をカード払いにすると、同じ支出でもポイントが貯まります。','カードを比較'],
+    ['job',2,'手取りを増やすなら年収アップ',`年収が10%上がると、手取りは年に約${yen(gain)}増える試算です。`,'求人を見る'],
+    ['kakeibo',1,`月${yen(mo)}の使い道を見える化`,'家計簿アプリで支出を自動で集計できます。','アプリを見る']
+  ];
+  const rows=C.filter(c=>AFF[c[0]]).sort((x,y)=>y[1]-x[1]).slice(0,3);
+  const box=$('nx');box.parentElement.hidden=r.g<=0||!rows.length;
+  $('prnote').hidden=!Object.values(AFF).some(Boolean);
+  box.innerHTML=rows.map(w=>`<a href="${AFF[w[0]]}" data-aff="${w[0]}" rel="sponsored nofollow noopener" target="_blank" class="flex min-h-[56px] items-center justify-between gap-3 rounded-lg bg-[#111A2C] px-3 py-2.5 hover:ring-1 hover:ring-amber-400"><span><span class="block text-sm font-semibold text-white">${w[2]}</span><span class="block text-xs leading-relaxed text-slate-400">${w[3]}</span></span><span class="shrink-0 text-xs font-semibold text-amber-400">${w[4]} →</span></a>`).join('');
 }
 $('nx').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const p={slot:a.dataset.aff,view};window.dataLayer&&dataLayer.push({event:'affiliate_click',...p});typeof gtag==='function'&&gtag('event','affiliate_click',p)});
 document.querySelectorAll('input').forEach(e=>e.addEventListener('input',calc));
@@ -248,5 +320,6 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>vis[e.target.id]=e.isInters
 ['inputs','results'].forEach(i=>io.observe($(i)));
 draw();calc();
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4f03aa9350394e48b325c5e4478436da"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
