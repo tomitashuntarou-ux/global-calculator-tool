@@ -230,7 +230,7 @@ function run(ik,mult=1){
   const hikazei=sh<=450000; // 単身の場合の非課税基準（合計所得45万円以下）
   const resI=hikazei?0:fl(Math.max(0,jk*.1-adj),100);
   const res=hikazei?0:resI+5000;
-  return{g,hl,pn,em,inc,res,resI,ti,jk,diff,ik:i12,net:g-si-inc-res-i12,hours:(h+ot)*w,wks:w};
+  return{g,hl,pn,em,inc,res,resI,ti,jk,diff,sh,ik:i12,net:g-si-inc-res-i12,hours:(h+ot)*w,wks:w};
 }
 function setUnit(u){
   const base=v('amt')*factor(unit),f=factor(u);
@@ -291,8 +291,9 @@ const AFF={
 function after(r,ik){
   const mo=r.net/12,save=Math.max(1000,Math.round(mo*.1/1000)*1000),gain=run(ik,1.1).net-r.net;
   // ふるさと納税 控除上限の目安 = 住民税所得割 × 20% ÷ (90% − 所得税の限界税率 × 1.021) + 2,000円
-  // 特例控除の税率区分は「住民税の課税所得 − 人的控除差調整額」で判定
-  const furu=r.resI>0?Math.floor((r.resI*.2/(.9-margRate(Math.max(0,r.jk-r.diff))*1.021)+2000)/1000)*1000:0;
+  // 特例控除の税率判定：住民税の課税所得 −（人的控除差調整額）。令和8・9年分は所得税の基礎控除の上乗せ分（基礎控除 − 48万円）も調整額に加わる
+  const furuBase=Math.max(0,r.jk-r.diff-Math.max(0,kiso(r.sh)-480000));
+  const furu=r.resI>0?Math.floor((r.resI*.2/(.9-margRate(furuBase)*1.021)+2000)/1000)*1000:0;
   // [キー, 優先度, タイトル, 説明, ボタン]  優先度の高い順に最大3件
   const C=[
     ['furusato',furu>=10000?5:1,
